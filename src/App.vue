@@ -12,11 +12,14 @@
 <script>
 import AllBeers from './components/AllBeers.vue'
 import HelloWorld from './components/HelloWorld.vue'
+import { eventBus } from './main'
 
 export default {
     data(){
         return {
-            beersData: []
+            beersData: [],
+            selectedBeer: null,
+            favouriteBeers: []
         }
     },
     components: {
@@ -24,10 +27,18 @@ export default {
         "beers-detail": BeersDetail,
         "all-beers": AllBeers
     },
+
     mounted(){
       fetch('https://api.punkapi.com/v2/beers')
       .then(res => res.json())
       .then(importedFromAPI => this.beersData = importedFromAPI)
+
+      eventBus.$on('beer-selected', (beer) => {
+        this.selectedBeer = beer
+      })
+      eventBus.$on('favourite-selected', (beer) => {
+        this.favouriteBeers.push(beer) 
+      })
     }
   }
 </script>
