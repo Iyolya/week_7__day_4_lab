@@ -3,15 +3,16 @@
     <h1>Brew Dog</h1>
     <div class="components">
       <all-beers/> 
-      <beers-detail/>
-      <favourites/>
+      <!-- <beers-detail/> -->
+      <!-- <favourites/> -->
     </div>
   </div>
 </template>
 
 <script>
+// import BeersDetail from './components/BeersDetail.vue'
+// import Favourites from './components/Favourites.vue'
 import AllBeers from './components/AllBeers.vue'
-import HelloWorld from './components/HelloWorld.vue'
 import { eventBus } from './main'
 
 export default {
@@ -19,12 +20,12 @@ export default {
         return {
             beersData: [],
             selectedBeer: null,
-            favouriteBeers: []
+            // favouriteBeers: []
         }
     },
     components: {
-        "favourites": Favourites,
-        "beers-detail": BeersDetail,
+        // "favourites": Favourites,
+        // "beers-detail": BeersDetail,
         "all-beers": AllBeers
     },
 

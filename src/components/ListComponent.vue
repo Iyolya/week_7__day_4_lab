@@ -1,5 +1,5 @@
 <template lang="html">
-     <li v-on:click="handleListClick">{{ beer.name }}<li/>
+     <li v-on:click="handleListClick">{{ beer.name }}</li>
 </template>
 
 <script>
@@ -9,10 +9,11 @@ export default {
     methods: {
     handleListClick(){
         eventBus.$emit('beer-selected', this.beer)
-        }
-    handleFavouriteClick(){
-        eventBus.$emit('favourite-selected', this.beer)
-    }
+        },
+
+    // handleFavouriteClick(){
+    //     eventBus.$emit('favourite-selected', this.beer)
+    // }
     }
  }
 

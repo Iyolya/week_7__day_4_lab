@@ -6,11 +6,12 @@
 </template>
 
 <script>
+import ListComponent from './ListComponent.vue'
 export default {
     name: 'all-beers',
     props: ['beersData'],
     components: {
-        "list-component": ListComponent,
+        "list-component": ListComponent
     }
 }
 </script>
