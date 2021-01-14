@@ -1,7 +1,7 @@
 <template lang="html">
     <div>
         <li v-on:click="handleListClick">{{ beerObject.name }}</li>
-        <button v-on:click="handleFavouriteClick">Favourite</button>
+        <button v-bind:class="isFavourite ? hidden : visible"  v-on:click="handleFavouriteClick">Favourite</button>
     </div>
 </template>
 
@@ -22,4 +22,8 @@ export default {
 
 </script>
 
-<style></style>
+<style lang="css">
+.hidden {
+    display: none;
+}
+</style>
