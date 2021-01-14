@@ -9,11 +9,23 @@
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+    data(){
+        return {
+            beersData: []
+        }
+    },
+    components: {
+        "list": List,
+        "favourites": Favourites,
+        "beers-detail": BeersDetail,
+        "all-beers": AllBeers
+    },
+    mounted(){
+      fetch('https://api.punkapi.com/v2/beers')
+      .then(res => res.json())
+      .then(importedFromAPI => this.beersData = importedFromAPI)
+    }
   }
-}
 </script>
 
 <style>
