@@ -4,14 +4,14 @@
     <div class="components">
       <all-beers :beersData="beersData" /> 
       <beer-detail :selectedBeer="selectedBeer"  />
-      <!-- <favourites/> -->
+      <favourite-beers :favouriteBeers="favouriteBeers"/>
     </div>
   </div>
 </template>
 
 <script>
 import BeerDetail from './components/BeerDetail.vue'
-// import Favourites from './components/Favourites.vue'
+import FavouriteBeers from './components/FavouriteBeers.vue'
 import AllBeers from './components/AllBeers.vue'
 import { eventBus } from './main'
 
@@ -20,13 +20,13 @@ export default {
         return {
             beersData: [],
             selectedBeer: null,
-            // favouriteBeers: []
+            favouriteBeers: []
         }
     },
     components: {
-        // "favourites": Favourites,
         "beer-detail": BeerDetail,
-        "all-beers": AllBeers
+        "all-beers": AllBeers,
+        "favourite-beers": FavouriteBeers
     },
 
     mounted(){
@@ -37,9 +37,9 @@ export default {
       eventBus.$on('beer-selected', (beer) => {
         this.selectedBeer = beer
       })
-      // eventBus.$on('favourite-selected', (beer) => {
-      //   this.favouriteBeers.push(beer) 
-      // })
+      eventBus.$on('favourite-selected', (beer) => {
+        this.favouriteBeers.push(beer) 
+      })
     }
   }
 </script>

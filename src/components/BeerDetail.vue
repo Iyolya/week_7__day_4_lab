@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="selectedBeer"> <!-- if false don't render, shoes away the null rendering error on page load -->
       <h2>Detail</h2>
       {{ selectedBeer.name }}
       {{ selectedBeer.abv }}
