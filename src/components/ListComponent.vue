@@ -1,14 +1,14 @@
 <template lang="html">
-     <li v-on:click="handleListClick">{{ beer.name }}</li>
+     <li v-on:click="handleListClick">{{ beerObject.name }}</li>
 </template>
 
 <script>
 import { eventBus } from '../main.js'
 export default {
-    props: ['beersData'],
+    props: ['beerObject'],
     methods: {
     handleListClick(){
-        eventBus.$emit('beer-selected', this.beer)
+        eventBus.$emit('beer-selected', this.beerObject)
         },
 
     // handleFavouriteClick(){

@@ -2,15 +2,15 @@
   <div>
     <h1>Brew Dog</h1>
     <div class="components">
-      <all-beers/> 
-      <!-- <beers-detail/> -->
+      <all-beers :beersData="beersData" /> 
+      <beer-detail :selectedBeer="selectedBeer"  />
       <!-- <favourites/> -->
     </div>
   </div>
 </template>
 
 <script>
-// import BeersDetail from './components/BeersDetail.vue'
+import BeerDetail from './components/BeerDetail.vue'
 // import Favourites from './components/Favourites.vue'
 import AllBeers from './components/AllBeers.vue'
 import { eventBus } from './main'
@@ -25,7 +25,7 @@ export default {
     },
     components: {
         // "favourites": Favourites,
-        // "beers-detail": BeersDetail,
+        "beer-detail": BeerDetail,
         "all-beers": AllBeers
     },
 
@@ -37,9 +37,9 @@ export default {
       eventBus.$on('beer-selected', (beer) => {
         this.selectedBeer = beer
       })
-      eventBus.$on('favourite-selected', (beer) => {
-        this.favouriteBeers.push(beer) 
-      })
+      // eventBus.$on('favourite-selected', (beer) => {
+      //   this.favouriteBeers.push(beer) 
+      // })
     }
   }
 </script>
