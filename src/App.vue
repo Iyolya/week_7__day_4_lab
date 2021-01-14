@@ -1,11 +1,16 @@
-<template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+<template lang="html">
+  <div>
+    <h1>Brew Dog</h1>
+    <div class="components">
+      <all-beers/> 
+      <beers-detail/>
+      <favourites/>
+    </div>
   </div>
 </template>
 
 <script>
+import AllBeers from './components/AllBeers.vue'
 import HelloWorld from './components/HelloWorld.vue'
 
 export default {
@@ -15,7 +20,6 @@ export default {
         }
     },
     components: {
-        "list": List,
         "favourites": Favourites,
         "beers-detail": BeersDetail,
         "all-beers": AllBeers

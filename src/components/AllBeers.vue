@@ -4,7 +4,11 @@
 
 <script>
 export default {
-
+    name: 'all-beers',
+    props: ['beersData'],
+    components: {
+        "list": List,
+    }
 }
 </script>
 
